@@ -1,0 +1,22 @@
+[user]
+	email = checherskiy.kfos@gmail.com
+	name = Kyrylo Checherskiy
+[push]
+	default = matching
+[color]
+	ui = true
+[core]
+	editor = vim
+[format]
+	pretty = "%h %s"
+[alias]
+	st = status
+	l = log --pretty
+	brd = branch -D
+	pop = pull origin -p
+	chm = checkout master
+	co = checkout
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false

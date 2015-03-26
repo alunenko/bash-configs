@@ -1,0 +1,53 @@
+# set -x
+# for autocomplete add: 
+[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+# for show current branch add:
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
+
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+RESET="\[\033[0;0m\]"
+
+# set -x 
+# User specific environment and startup programs
+COLOR1="\[\033[0;36m\]"
+COLOR2="\[\033[0;33m\]"
+COLOR3="\[\033[0;38m\]"
+#if [ "$UID" = "0" ];
+#then COLOR2="\[\033[0;31m\]" fi
+# export PS1="$COLOR2[$COLOR1\u$COLOR2@$COLOR1\h$COLOR2:$COLOR1\w\$(parse_git_branch)$COLOR2]\$ $COLOR3"
+export PS1="$YELLOW[$COLOR1\u$YELLOW@$COLOR1\h$YELLOW:$COLOR1\w$GREEN\$(parse_git_branch)$YELLOW]\$ $COLOR3"
+# set +x 
+
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+
+export TZ="Europe/Kiev"
+export TERM=xterm
+
+alias mc="mc"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ehosts='sudo nano /etc/hosts'
+alias gvhost='cd /etc/apache2/sites-available'
+alias defvh='cp /etc/apache2/sites-available/apache.conf'
+alias zfort='/var/www/zfort'
+alias kfos='/var/www/kfos'
+alias qarea='/var/www/qarea'
+alias internal='/var/www/internal'
+alias composer='./composer'
+alias minion='./minion'
+alias yiic='./yiic'
+alias yii='./yii'
+alias install='./install'
+alias update='./update'
